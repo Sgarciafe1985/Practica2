@@ -16,9 +16,9 @@ Sergio García Fernández
 
 ## Dataset
 
-Puede chequear el dataset en la siguiente dirección:
+Puede comprobar el dataset en la siguiente dirección:
 
-[https://github.com/Bengis/nba-gap-cleaning/blob/master/data/nba_out.csv](https://github.com/Bengis/nba-gap-cleaning/blob/master/data/nba_out.csv)
+[https://github.com/Sgarciafe1985/Practica2/blob/master/data/HS2016.csv](https://github.com/Sgarciafe1985/Practica2/blob/master/data/HS2016.csv)
 
 ## Licencia
 
