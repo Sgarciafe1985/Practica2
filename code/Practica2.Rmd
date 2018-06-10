@@ -1,6 +1,6 @@
 ---
-title: "PrÃ¡ctica2"
-author: "Sergio GarcÃ­a FernÃ¡ndez"
+title: "Práctica2"
+author: "Sergio García Fernández"
 date: "3 de junio de 2018"
 output: html_document
 ---
@@ -9,34 +9,34 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 <ul>
-<p>El objetivo de esta actividad serÃ¡ el tratamiento de un dataset.
-Siguiendo las principales etapas de un proyecto analÃ­tico, las diferentes tareas a realizar (y justificar) son las siguientes</p>
-<li type="disc">[1. DescripciÃ³n del dataset. Â¿Por quÃ© es importante y quÃ© pregunta/problema pretende responder?](#N1)</li>
-<li type="disc">[2. IntegraciÃ³n y selecciÃ³n de los datos de interÃ©s a analizar](#N2)</li>
+<p>El objetivo de esta actividad será el tratamiento de un dataset.
+Siguiendo las principales etapas de un proyecto analítico, las diferentes tareas a realizar (y justificar) son las siguientes</p>
+<li type="disc">[1. Descripción del dataset. ¿Por qué es importante y qué pregunta/problema pretende responder?](#N1)</li>
+<li type="disc">[2. Integración y selección de los datos de interés a analizar](#N2)</li>
 <li type="disc">[3. Limpieza de los datos](#N3)</li>
 <ul>
-  <li type="square">[3.1. Â¿Los datos contienen ceros o elementos vacÃ­os? Â¿CÃ³mo gestionarÃ­as cada uno de estos casos?](#N3_1)</li>
-  <li type="square">[3.2. IdentificaciÃ³n y tratamiento de valores extremos.](#N3_2)</li>
+  <li type="square">[3.1. ¿Los datos contienen ceros o elementos vacíos? ¿Cómo gestionarías cada uno de estos casos?](#N3_1)</li>
+  <li type="square">[3.2. Identificación y tratamiento de valores extremos.](#N3_2)</li>
 </ul>
-<li type="disc">[4. AnÃ¡lisis de los datos](#N4)</li>
+<li type="disc">[4. Análisis de los datos](#N4)</li>
 <ul>
-  <li type="square">[4.1. SelecciÃ³n de los grupos de datos que se quieren analizar/comparar (planificaciÃ³n de los anÃ¡lisis a aplicar)](#N4_1)</li>
-  <li type="square">[4.2. ComprobaciÃ³n de la normalidad y homogeneidad de la varianza](#N4_2)</li>
-  <li type="square">[4.3. AplicaciÃ³n de pruebas estadÃ­sticas para comparar los grupos de datos](#N4_3)</li>
+  <li type="square">[4.1. Selección de los grupos de datos que se quieren analizar/comparar (planificación de los análisis a aplicar)](#N4_1)</li>
+  <li type="square">[4.2. Comprobación de la normalidad y homogeneidad de la varianza](#N4_2)</li>
+  <li type="square">[4.3. Aplicación de pruebas estadísticas para comparar los grupos de datos](#N4_3)</li>
   </ul>
-<li type="disc">[5. RepresentaciÃ³n de los resultados a partir de tablas y grÃ¡ficas](#N5)</li>
-<li type="disc">[6. ResoluciÃ³n del problema. A partir de los resultados obtenidos, Â¿cuÃ¡les son las conclusiones? Â¿Los resultados permiten responder al problema?](#N6)</li>
-<li type="disc">[7. CÃ³digo: Hay que adjuntar el cÃ³digo, preferiblemente en R, con el que se ha realizado la limpieza, anÃ¡lisis y representaciÃ³n de los datos](#N7)</li>
+<li type="disc">[5. Representación de los resultados a partir de tablas y gráficas](#N5)</li>
+<li type="disc">[6. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las conclusiones? ¿Los resultados permiten responder al problema?](#N6)</li>
+<li type="disc">[7. Código: Hay que adjuntar el código, preferiblemente en R, con el que se ha realizado la limpieza, análisis y representación de los datos](#N7)</li>
 
-<h1 id="N1">1. DescripciÃ³n del dataset. Â¿Por quÃ© es importante y quÃ© pregunta/problema pretende responder?</h1>
+<h1 id="N1">1. Descripción del dataset. ¿Por qué es importante y qué pregunta/problema pretende responder?</h1>
 </br>
-Los datos a tratar corresponden a la informaciÃ³ del World Happiness Report del aÃ±o 2016 que muestra
-una serie de variables asociadas a la felicidad en distintos paÃ­ses del mundo. Las variables del fichero son: Country, Region,
+Los datos a tratar corresponden a la informació del World Happiness Report del año 2016 que muestra
+una serie de variables asociadas a la felicidad en distintos países del mundo. Las variables del fichero son: Country, Region,
 Happiness.Rank, Happiness.Score, Lower.Confidence.Interval, Upper.Confidence.Interval, GDP.per.Capita,
 Family, Life.Expectancy, Freedom, Government.Corruption, Generosity, Dystopia.Residual.
-Intenta responder a la felicidad de cada paÃ­s, teniendo en cuenta una serie de variables como la esperanza de vida, la renta per cÃ¡pita, la corrupciÃ³n ... Es importante para determinar en que paÃ­ses existe un nivel mayor de felicidad.
+Intenta responder a la felicidad de cada país, teniendo en cuenta una serie de variables como la esperanza de vida, la renta per cápita, la corrupción ... Es importante para determinar en que países existe un nivel mayor de felicidad.
 </br>
-<h1 id="N2">2. IntegraciÃ³n y selecciÃ³n de los datos de interÃ©s a analizar</h1>
+<h1 id="N2">2. Integración y selección de los datos de interés a analizar</h1>
 </br>
 ```{r pressure, echo=TRUE}
 datos <- read.csv(file="C:\\Users\\Sergio\\Documents\\2016_raw.csv",head=TRUE,sep=",")
@@ -52,7 +52,7 @@ colnames(df)<-c("Country","Region","HR","HS","LCI","UCI","GPC","LE","GC")
 ```
 <h1 id="N3">3. Limpieza de los datos.</h1>
 </br>
-<h1 id="N3_1">3.1. Â¿Los datos contienen ceros o elementos vacÃ­os? Â¿CÃ³mo gestionarÃ­as
+<h1 id="N3_1">3.1. ¿Los datos contienen ceros o elementos vacíos? ¿Cómo gestionarías
 cada uno de estos casos?</h1>
 </br>
 ```{r pressure2, echo=TRUE}
@@ -60,8 +60,10 @@ sapply(df,class)
 ```
 
 ```{r pressure3}
-df$HS <- as.numeric(df$HS)
-df$GPC <- as.numeric(df$GPC)
+df[,4] <-  as.numeric( sub(",","\\.",df[,4]))
+df[,7] <-  as.numeric( sub(",","\\.",df[,7]))
+df$HS <- as.numeric(as.character(df$HS))
+df$GPC <- as.numeric(as.character(df$GPC))
 sapply(df,class)
 
 ```
@@ -76,17 +78,15 @@ kk <- gsub("AFRCA", "AFRICA",kk)
 df$Region <-as.factor(kk)
 
 ```
-Se cambia el nombre de los paÃ­ses a mayÃºsculas para trabajar mejor con ellos.
+Se cambia el nombre de los países a mayúsculas para trabajar mejor con ellos.
 ```{r pressure5, echo=TRUE}
 kk <- which(df$UCI- df$LCI < 0)
 kk1 <- df$UCI[kk]
 df$UCI[kk] <- df$LCI[kk]
 df$LCI[kk] <- kk1
-
-kk <- which(order(df$HS, decreasing=TRUE)!=df$HR)
-df$HR[kk]<- kk
+df$HR<-rank(-df$HS)
 ```
-Solucionamos las inconsistencias en las variables. Y comprobamos que el ranking estÃ© correctamente ordenado.
+Solucionamos las inconsistencias en las variables. Y comprobamos que el ranking esté correctamente ordenado.
 Si existiera valores en el ranking vacios, se complentarian con el valor correcto.
 
 ```{r pressure6, echo=TRUE}
@@ -97,12 +97,12 @@ df$HS[24]=NA
 vector<-which(is.na(df$HS))
 for(i in vector){df$HS[i]<-df_aux$df.HS[which(df_aux$df.Region==df$Region[i])] }
 ```
-Fuerzo a que haya varios vacios en la columna de HS, y los rellenamos con la media de los valores de su regiÃ³n, obviando los valores vacios.
-En caso de que se diera en otr de las columnas numÃ©ricas, lo harÃ­a de la misma manera.
+Fuerzo a que haya varios vacios en la columna de HS, y los rellenamos con la media de los valores de su región, obviando los valores vacios.
+En caso de que se diera en otra de las columnas numéricas, lo haría de la misma manera.
 
-<h1 id="N3_2">3.2. IdentificaciÃ³n y tratamiento de valores extremos.</h1>
+<h1 id="N3_2">3.2. Identificación y tratamiento de valores extremos.</h1>
 </br>
-Eliminamos los registros que tienen algÃºn cero en las diferentes columnas
+Eliminamos los registros que tienen algún cero en las diferentes columnas
 ```{r pressure7, echo=TRUE}
 df<-df[which(df$HS!="0"),]
 df<-df[which(df$LCI!="0"),]
@@ -127,14 +127,14 @@ for(i in 4:ncol(df)) {
 }
 par(mfrow=c(1,1))
 ```
-Comprobamos en los grÃ¡ficos que no existen outliers.
+Comprobamos en los gráficos que no existen outliers.
 
-<h1 id="N4">4. AnÃ¡lisis de los datos.</h1>
+<h1 id="N4">4. Análisis de los datos.</h1>
 </br>
-<h1 id="N4_1">4.1. SelecciÃ³n de los grupos de datos que se quieren analizar/comparar
-(planificaciÃ³n de los anÃ¡lisis a aplicar).</h1>
+<h1 id="N4_1">4.1. Selección de los grupos de datos que se quieren analizar/comparar
+(planificación de los análisis a aplicar).</h1>
 </br>
-<h1 id="N4_2">4.2. ComprobaciÃ³n de la normalidad y homogeneidad de la varianza.</h1>
+<h1 id="N4_2">4.2. Comprobación de la normalidad y homogeneidad de la varianza.</h1>
 </br>
 ```{r pressure9, echo=TRUE}
 
@@ -160,13 +160,13 @@ shapiro.test(df$GC)
 ```
 El test nos indica que ninguna variable esta normalizada, ya que el p-valor es inferior al coeficiente 0.05, por lo que se puede rechazar la hipotesis nula y entender que no es normal.
 
-Que no sea normal no quiere decir que no pueda ser normalizable, ya que segun el teorema del limite central al tener mas de 30 elementos en las observaciones podemos aproximarla como una distribuciÃ³n normal de media 0 y desviaciÃ³n estandard 1.
+Que no sea normal no quiere decir que no pueda ser normalizable, ya que segun el teorema del limite central al tener mas de 30 elementos en las observaciones podemos aproximarla como una distribución normal de media 0 y desviación estandard 1.
 
-<h1 id="N4_3">4.3. AplicaciÃ³n de pruebas estadÃ­sticas para comparar los grupos de datos.
-En funciÃ³n de los datos y el objetivo del estudio, aplicar pruebas de contraste
-de hipÃ³tesis, correlaciones, regresiones, etc.</h1>
+<h1 id="N4_3">4.3. Aplicación de pruebas estadísticas para comparar los grupos de datos.
+En función de los datos y el objetivo del estudio, aplicar pruebas de contraste
+de hipótesis, correlaciones, regresiones, etc.</h1>
 </br>
-Vamos a realizar la comparaciÃ³n de la felicidad en Europa, con las del resto del mundo.
+Vamos a realizar la comparación de la felicidad en Europa, con las del resto del mundo.
 ```{r pressure11, echo=TRUE}
 eu<-c("CENTRAL AND EASTERN EUROPE","WESTERN EUROPE")
 df_europe <- df[which(df$Region %in% eu),]
@@ -183,7 +183,7 @@ summary(Modelrest)
 El coeficiente de la bondad de ajuste es 0.67 y el coeficiente ajustado es: 0.6603 
 
 Al comparar el ajuste en ambos modelos, comprobamos que el ajuste es mejor para el resto de la muestra, que no se encuentran en Europa, que las que se encuentra en Europa.
-Realizamos una predicciÃ³n con unos datos en ambos modelos para compararlos
+Realizamos una predicción con unos datos en ambos modelos para compararlos
 ```{r pressure13, echo=TRUE}
 newdata=data.frame(GPC=1.5, LE=0.69, GC=0.35)
 predict(Model, newdata)
@@ -191,32 +191,32 @@ predict(Modelrest,newdata)
 ```
 El valor de la felicidad para los datos es de 40.21791 para el primer modelo y 74.6098 para el segundo.
 </br>
-<h1 id="N5">5. RepresentaciÃ³n de los resultados a partir de tablas y grÃ¡ficas.</h1>
+<h1 id="N5">5. Representación de los resultados a partir de tablas y gráficas.</h1>
 </br>
 ```{r pressure14, echo=TRUE}
 eurHS=sum(as.numeric(df_europe$HS))/length(df_europe$HS)
 restHS=sum(as.numeric(df_rest$HS))/length(df_rest$HS)
 counts <- c(eurHS, restHS)
-barplot(counts, names=c("EU", "REST"), main="PuntuaciÃ³n de felicidad por paÃ­s", 
-  	xlab="RegiÃ³n")
+barplot(counts, names=c("EU", "REST"), main="Puntuación de felicidad por país", 
+  	xlab="Región")
 ```
 
-Como se puede comprobar, la felicidad en Europa es superior a la del resto de los paÃ­ses en la muestra.
+Como se puede comprobar, la felicidad en Europa es superior a la del resto de los países en la muestra.
 
 </br>
-<h1 id="N6">6. ResoluciÃ³n del problema. A partir de los resultados obtenidos, Â¿cuÃ¡les son las
-conclusiones? Â¿Los resultados permiten responder al problema?</h1>
+<h1 id="N6">6. Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las
+conclusiones? ¿Los resultados permiten responder al problema?</h1>
 </br>
 
 Nos queda que:
 
--La felicidad media para los paÃ­ses europeos estudiados es de r toString(round(eurHS, digits=0)).
--La felicidad media para el resto de los paÃ­ses, que no se encuentran en Europa, es de r toString(round(restHS, digits=0)) dolares.
+-La felicidad media para los países europeos estudiados es de r toString(round(eurHS, digits=0)).
+-La felicidad media para el resto de los países, que no se encuentran en Europa, es de r toString(round(restHS, digits=0)) dolares.
 </br>
-Por lo que se puede concluir por los datos estudiados, que se vive con mayor felicidad en un paÃ­s europeo, que en el resto del mundo.
+Por lo que se puede concluir por los datos estudiados, que se vive con mayor felicidad en un país europeo, que en el resto del mundo.
 </br>
-<h1 id="N7">7. CÃ³digo</h1>
+<h1 id="N7">7. Código</h1>
 </br>
 Procedemos a exportar los datos sobre los que se ha trabajado
 ```{r pressure15, echo=TRUE}
-write.csv(df, file = "./HS2016.csv")
+write.csv(df, file = "C:/Users/Sergio/Desktop/Master/Tipologia y ciclo de vida de los datos/Practica2/HS2016.csv")
