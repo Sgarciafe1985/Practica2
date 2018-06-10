@@ -20,6 +20,10 @@ Puede comprobar el dataset en la siguiente dirección:
 
 [https://github.com/Sgarciafe1985/Practica2/blob/master/data/HS2016.csv](https://github.com/Sgarciafe1985/Practica2/blob/master/data/HS2016.csv)
 
+Puede comprobar el código R en la siguiente dirección:
+[https://github.com/Sgarciafe1985/Practica2/blob/master/code/Practica2.Rmd]
+(https://github.com/Sgarciafe1985/Practica2/blob/master/code/Practica2.Rmd)
+
 ## Licencia
 
 El contenido de este proyecto esta licencia bajo la [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/), 
